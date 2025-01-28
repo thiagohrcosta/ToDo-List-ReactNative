@@ -51,6 +51,10 @@ export const styles = StyleSheet.create({
     color: `${globalStyles.colors.gray100}`,
   },
 
+  taskListContainer: {
+    marginTop: 20,
+  },
+
   tasksCounterContainer: {
     marginLeft: 24,
     marginRight: 24,

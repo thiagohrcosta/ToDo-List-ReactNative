@@ -1,10 +1,14 @@
 import { Text, View } from "react-native";
 import { styles } from "./styles";
 
-export function CreatedTasks() {
+type taskProps = {
+  counter: number
+}
+
+export function CreatedTasks( {counter}: taskProps) {
   return (
     <View>
-      <Text style={styles.text}>Created Tasks - 0</Text>
+      <Text style={styles.text}>Created Tasks - {counter || 0}</Text>
     </View>
   )
 }
