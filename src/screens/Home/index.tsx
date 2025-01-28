@@ -1,13 +1,13 @@
-import { Alert, FlatList, Task, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Alert, FlatList, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { styles } from "./styles";
 import { globalStyles } from "../../styles/global";
 import { CreatedTasks } from "../../components/CreatedTasks";
 import { CompletedTasks } from "../../components/CompletedTasks";
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { TaskCard } from "../../components/TaskCard";
+import { TaskContext } from "../../contexts/TaskContext";
 
 type Task = {
-
   name: string;
   completed: boolean;
 };
@@ -15,7 +15,15 @@ type Task = {
 export function Home() {
   const [taskList, setTaskList] = useState<Task[]>([])
   const [taskName, setTaskName] = useState('')
-  const [completedTasks, setCompletedTasks] = useState(0);
+
+  const { 
+    createdTasksAmount,
+    setCreatedTasksAmount, 
+    completedTasksAmount, 
+    handleUpdateDeleteTaskAmount,
+    setCompletedTasksAmount
+  } = useContext(TaskContext);
+
 
   function handleAddTask() {
     const data: Task = {
@@ -26,6 +34,9 @@ export function Home() {
     setTaskList((prevState) => [...prevState, data]);
     setTaskName("")
 
+    const createdTasksSum = [...taskList, data].filter(task => task.completed === false).length;
+    setCreatedTasksAmount(createdTasksSum)
+
     console.log(taskList)
   }
 
@@ -33,7 +44,11 @@ export function Home() {
     Alert.alert("Remove", `Do you want to remove ${item.name} from list?`, [
       {
         text: "Yes",
-        onPress: () => setTaskList(prevState => prevState.filter(task => task !== item))
+        onPress: () => {
+          setTaskList(prevState => prevState.filter(task => task !== item));
+          handleUpdateDeleteTaskAmount()
+          setCompletedTasksAmount(completedTasksAmount - 1)
+        }
       },
       {
         text: "No",
@@ -72,9 +87,11 @@ export function Home() {
 
       <View style={styles.tasksCounterContainer}>
         <CreatedTasks 
-          counter={2}
+          counter={createdTasksAmount}
         />
-        <CompletedTasks />
+        <CompletedTasks
+          counter={completedTasksAmount}
+        />
       </View>
 
       <View style={styles.taskListContainer}>

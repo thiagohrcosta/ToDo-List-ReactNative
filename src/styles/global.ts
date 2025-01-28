@@ -8,6 +8,7 @@ export const globalStyles = {
     gray700: '#0D0D0D',
     blueDark: '#1E6F9F',
     blue: '#4EA8DE',
-    purple: '#8284FA'
+    purple: '#8284FA',
+    purpleDark: '#5E60CE'
   }
 }

@@ -19,6 +19,15 @@ export const styles = StyleSheet.create({
     flexDirection: 'row'
   },
 
+  tasksCounterContainer: {
+    marginLeft: 24,
+    marginRight: 24,
+    marginTop: 36,
+    justifyContent: 'space-between', 
+    flexDirection: 'row',          
+    alignItems: 'center',   
+  },
+
   checkboxInput: {
     justifyContent: 'space-between',
     alignItems: 'center',
