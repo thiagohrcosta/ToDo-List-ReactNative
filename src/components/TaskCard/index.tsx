@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Alert, Image, Text, TouchableOpacity, View } from "react-native";
 import { styles } from "./styles";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 import { globalStyles } from "../../styles/global";
+import { CreatedTasks } from "../CreatedTasks";
+import { CompletedTasks } from "../CompletedTasks";
+import { TaskContext } from "../../contexts/TaskContext";
 
 type TaskProps = {
   name: string;
@@ -11,6 +14,8 @@ type TaskProps = {
 };
 
 export function TaskCard({ name, completed, onRemove }: TaskProps) {
+    const { completedTasksAmount, setCompletedTasksAmount } = useContext(TaskContext);
+  
   const [isCompleted, setIsCompleted] = useState(completed);
 
   const handleCheckboxPress = () => {
@@ -24,6 +29,7 @@ export function TaskCard({ name, completed, onRemove }: TaskProps) {
             onPress: () => {
               setIsCompleted(false);
               console.log("Task marked as incomplete.");
+              setCompletedTasksAmount(completedTasksAmount - 1)
             },
           },
           {
@@ -46,6 +52,7 @@ export function TaskCard({ name, completed, onRemove }: TaskProps) {
             onPress: () => {
               setIsCompleted(true);
               console.log("Task marked as completed.");
+              setCompletedTasksAmount(completedTasksAmount + 1)
             },
           },
           {
@@ -67,8 +74,8 @@ export function TaskCard({ name, completed, onRemove }: TaskProps) {
         <View style={styles.checkboxInput}>
           <BouncyCheckbox
             size={24}
-            fillColor={globalStyles.colors.blue}
-            unfillColor="#FFFFFF"
+            fillColor={globalStyles.colors.purpleDark}
+            unfillColor={globalStyles.colors.gray500}
             iconStyle={{ borderColor: "red" }}
             innerIconStyle={{ borderWidth: 2 }}
             textStyle={{ fontFamily: "JosefinSans-Regular" }}
