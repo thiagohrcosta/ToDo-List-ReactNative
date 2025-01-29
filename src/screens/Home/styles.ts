@@ -12,12 +12,23 @@ export const styles = StyleSheet.create({
     marginTop: 30,
     height: 173,
     backgroundColor: `${globalStyles.colors.gray700}`,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center', 
+    paddingVertical: 20,
   },
 
   logoText: {
     textAlign: 'center',
     justifyContent: 'center',
     color: '#fff'
+  },
+
+  logoImage: {
+    width: 110,
+    height: 32,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
 
   inputContainer: {
@@ -62,5 +73,10 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between', 
     flexDirection: 'row',          
     alignItems: 'center',          
+  },
+
+  noItemList: {
+    fontSize: 48,
+    color: `#fff`
   }
 })

@@ -2,9 +2,7 @@ import { StyleSheet } from "react-native";
 import { globalStyles } from "../../styles/global";
 
 export const styles = StyleSheet.create({
-  container: {
-
-  },
+  container: {},
 
   text: {
     fontWeight: 'bold',
