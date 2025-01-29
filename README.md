@@ -26,3 +26,6 @@
 **ToDo List** was built as a practical challenge to reinforce fundamental **React Native** concepts. The focus was on structuring screens, handling data efficiently, and applying clean, maintainable styles. To enhance usability, **Context API** was integrated, making state management more intuitive.
 
 💡 _A simple, elegant way to stay on top of your tasks!_
+
+🎓 Certification
+![image](https://github.com/user-attachments/assets/a4dc6cee-74f5-486e-82a1-297da01bb872)
