@@ -12,12 +12,23 @@ export const styles = StyleSheet.create({
     marginTop: 30,
     height: 173,
     backgroundColor: `${globalStyles.colors.gray700}`,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center', 
+    paddingVertical: 20,
   },
 
   logoText: {
     textAlign: 'center',
     justifyContent: 'center',
     color: '#fff'
+  },
+
+  logoImage: {
+    width: 110,
+    height: 32,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
 
   inputContainer: {
@@ -62,5 +73,32 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between', 
     flexDirection: 'row',          
     alignItems: 'center',          
+  },
+
+  noItemList: {
+    fontSize: 48,
+    color: `#fff`
+  },
+
+  noTaskContainer: {
+    flex: 1,
+    marginTop: -350,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+
+  noTaskTitle: {
+    marginTop: 10,
+    marginBottom: 10,
+    fontSize: 14,
+    fontWeight: 'bold',
+    color: `${globalStyles.colors.gray300}`
+  },
+
+  noTaskSubtitle: {
+    width: '80%',
+    textAlign: 'center',
+    fontSize: 14,
+    color: `${globalStyles.colors.gray300}`
   }
 })

@@ -1,4 +1,4 @@
-import { Alert, FlatList, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Alert, FlatList, Image, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { styles } from "./styles";
 import { globalStyles } from "../../styles/global";
 import { CreatedTasks } from "../../components/CreatedTasks";
@@ -6,6 +6,7 @@ import { CompletedTasks } from "../../components/CompletedTasks";
 import React, { useContext, useEffect, useState } from "react";
 import { TaskCard } from "../../components/TaskCard";
 import { TaskContext } from "../../contexts/TaskContext";
+
 
 type Task = {
   name: string;
@@ -63,7 +64,7 @@ export function Home() {
   return (
     <View style={styles.container}>
       <View style={styles.logoContainer}>
-        <Text style={styles.logoText}>TODO LIST</Text>
+        <Image source={require('../../../assets/Logo.png')} style={styles.logoImage} />
       </View>
 
       <View style={styles.inputContainer}>
@@ -106,12 +107,18 @@ export function Home() {
             />
           )}
           showsVerticalScrollIndicator={false}
-          ListEmptyComponent={() => (
-            <Text>
-              No one on your list? Add participants to your event.
-            </Text>
-          )}
+          contentContainerStyle={{ paddingBottom: 300}}
         />
+      </View>
+
+      <View style={styles.noTaskContainer}>
+        {taskList.length === 0 && (
+          <>
+            <Image source={require("../../../assets/Clipboard.png")} />
+            <Text style={styles.noTaskTitle}>No task yet</Text>
+            <Text style={styles.noTaskSubtitle}>Create your tasks and stay organized throughout the day.</Text>
+          </>
+        )}
       </View>
     </View>
   )

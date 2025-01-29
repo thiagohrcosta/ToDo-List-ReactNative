@@ -8,7 +8,7 @@ type taskProps = {
 };
 
 export function CompletedTasks({ counter }: taskProps) {
-      const { completedTasksAmount } = useContext(TaskContext);
+  const { completedTasksAmount } = useContext(TaskContext);
   
   return (
     <View>

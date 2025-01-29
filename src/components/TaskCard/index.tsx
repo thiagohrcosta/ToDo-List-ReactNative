@@ -22,7 +22,7 @@ export function TaskCard({ name, completed, onRemove }: TaskProps) {
     if (isCompleted) {
       Alert.alert(
         "Uncheck Task",
-        "Do you want to uncheck this task to set as incomplete?",
+        `Do you want to uncheck ${ name } to set as incomplete?`,
         [
           {
             text: "Yes",
@@ -45,7 +45,7 @@ export function TaskCard({ name, completed, onRemove }: TaskProps) {
     } else {
       Alert.alert(
         "Check Task",
-        "Do you want to check this task as completed?",
+        `Do you want to check ${ name } as completed?`,
         [
           {
             text: "Yes",
@@ -95,7 +95,7 @@ export function TaskCard({ name, completed, onRemove }: TaskProps) {
         <TouchableOpacity
           onPress={onRemove}
         >
-          <Text style={styles.trashIcon}>Trash</Text>
+          <Image source={require("../../../assets/trash.png")} />
         </TouchableOpacity>
 
       </View>
