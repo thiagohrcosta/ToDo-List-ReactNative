@@ -27,5 +27,6 @@
 
 💡 _A simple, elegant way to stay on top of your tasks!_
 
-🎓 Certification
+## 🎓 Certification
+
 ![image](https://github.com/user-attachments/assets/a4dc6cee-74f5-486e-82a1-297da01bb872)
