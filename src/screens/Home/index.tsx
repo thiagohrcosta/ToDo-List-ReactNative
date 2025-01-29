@@ -110,6 +110,16 @@ export function Home() {
           contentContainerStyle={{ paddingBottom: 300}}
         />
       </View>
+
+      <View style={styles.noTaskContainer}>
+        {taskList.length === 0 && (
+          <>
+            <Image source={require("../../../assets/Clipboard.png")} />
+            <Text style={styles.noTaskTitle}>No task yet</Text>
+            <Text style={styles.noTaskSubtitle}>Create your tasks and stay organized throughout the day.</Text>
+          </>
+        )}
+      </View>
     </View>
   )
 }

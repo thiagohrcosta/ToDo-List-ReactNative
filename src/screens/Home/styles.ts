@@ -78,5 +78,27 @@ export const styles = StyleSheet.create({
   noItemList: {
     fontSize: 48,
     color: `#fff`
+  },
+
+  noTaskContainer: {
+    flex: 1,
+    marginTop: -350,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+
+  noTaskTitle: {
+    marginTop: 10,
+    marginBottom: 10,
+    fontSize: 14,
+    fontWeight: 'bold',
+    color: `${globalStyles.colors.gray300}`
+  },
+
+  noTaskSubtitle: {
+    width: '80%',
+    textAlign: 'center',
+    fontSize: 14,
+    color: `${globalStyles.colors.gray300}`
   }
 })
